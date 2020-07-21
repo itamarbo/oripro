@@ -1,0 +1,27 @@
+<mat-card>
+        
+    <form #tempForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="example-container">
+       <div>
+        <mat-form-field>
+                
+                <input matInput placeholder="Email" [(ngModel)] = "email" name = "email"  >
+            
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+                
+                <input matInput placeholder="Password" [(ngModel)] = "password" name = "password" >
+            
+        </mat-form-field>
+    </div>
+        <div >
+            <div class = "spacer">
+            <button class="whitelink" mat-raised-button color="primary" [disabled]="!tempForm.form.valid">login</button>
+            <button class="whitelink" routerLink="/signup"  routerLinkActive="active" mat-raised-button color="primary" >Cancel</button>
+            </div>
+        </div>
+      </div>
+    </form>
+    </mat-card>

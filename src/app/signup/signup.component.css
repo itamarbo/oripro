@@ -1,0 +1,10 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  .whitelink {
+    color:white;
+    text-decoration: none;
+    cursor:pointer;
+    margin-right:10px;
+  }
