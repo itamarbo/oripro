@@ -1,1 +1,10 @@
 <p>welcome works!</p>
+
+
+<!-- file uploader -->
+<div class="main">
+    <h1>Please upload your file</h1>
+    <input (change)="onFilePicked($event)" class="custom-file-input" placeholder="Upload File" type="file" />
+    <button (click)="onFileUpload()" class="myButton">Upload File</button>
+    <p *ngIf="errorMsg"> Please Select A File</p>
+</div>
