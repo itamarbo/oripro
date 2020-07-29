@@ -1,0 +1,12 @@
+<p *ngIf="!(products$ | async)">loading books...</p>
+<button  routerLink="/addproduct"  routerLinkActive="active" mat-raised-button color="primary" >Add product</button>
+<mat-accordion>
+    <mat-expansion-panel *ngFor = "let product of products$ | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{product.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header> 
+      by {{product.id}} & {{product.Quantity}}  
+    </mat-expansion-panel>
+  </mat-accordion>

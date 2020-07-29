@@ -1,27 +1,39 @@
-<mat-card>
-        
-    <form #tempForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="example-container">
-       <div>
-        <mat-form-field>
-                
-                <input matInput placeholder="Email" [(ngModel)] = "email" name = "email"  >
-            
-        </mat-form-field>
+<div id="main">
+  <mat-card>
+      <h1 >Login</h1>
+      <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="example-container ">
+          <br>
+          <br>
+          <mat-form-field class="size400">
+            <input matInput   placeholder="Email" #Email="ngModel" [class.is-invalid]="Email.invalid && Email.touched"
+             [(ngModel)] = "email" name = "email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+  
+            <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+                <small class="text-danger" *ngIf="Email.errors.pattern">Please provide a valid email address</small>
+              </div>
+    </mat-form-field>
+  
+          <br>
+          
+          <mat-form-field class="size400">
+              <input matInput placeholder="password" [(ngModel)] = "password"
+                               name = "password"
+                               type="password"
+                               required #spy
+                               #signin = "ngModel">
+              <mat-error *ngIf="!(signin.valid || signin.pristine)">
+                  password is required
+              </mat-error>                        
+            </mat-form-field>
+      
+          
+          <div >
+              <button class="size400" style=" margin-top: 50px;" mat-raised-button color="primary" [disabled]="!signupForm.form.valid">Login</button>
+          </div>
+          <br>
+          <p>Don't have an account?<a routerLink="/signup" class="btn btn-link" >Register</a></p>
         </div>
-        <div>
-        <mat-form-field>
-                
-                <input matInput placeholder="Password" [(ngModel)] = "password" name = "password" >
-            
-        </mat-form-field>
-    </div>
-        <div >
-            <div class = "spacer">
-            <button class="whitelink" mat-raised-button color="primary" [disabled]="!tempForm.form.valid">login</button>
-            <button class="whitelink" routerLink="/signup"  routerLinkActive="active" mat-raised-button color="primary" >Cancel</button>
-            </div>
-        </div>
+      </form>
+      </mat-card>
       </div>
-    </form>
-    </mat-card>

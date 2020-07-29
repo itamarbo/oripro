@@ -29,7 +29,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component'; 
+import { LoginComponent } from './login/login.component';
+import { ProductsComponent } from './products/products.component';
+import { AddproductnotreallyComponent } from './addproductnotreally/addproductnotreally.component';
+// import { ProductComponent } from './product/product.component'; 
 
 
 
@@ -37,6 +40,9 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'addproducts', component: ProductsComponent },
+  { path: 'products', component: AddproductnotreallyComponent },
+
   { path: "",
     redirectTo: '/welcome',
     pathMatch: 'full'
@@ -50,7 +56,10 @@ const appRoutes: Routes = [
     NavComponent,
     WelcomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProductsComponent,
+    AddproductnotreallyComponent,
+    // ProductComponent
   ],
   imports: [
     BrowserModule,

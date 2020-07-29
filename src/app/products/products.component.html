@@ -1,0 +1,35 @@
+<mat-card>
+        
+    <form #tempForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="example-container">
+       <div>
+        <mat-form-field>
+                
+                <input matInput placeholder="Name" [(ngModel)] = "name" name = "name"  required #spy     #temp = "ngModel">
+            
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+                
+                <input matInput placeholder="Id" [(ngModel)] = "id" name = "id"  required #spy     #temp = "ngModel">
+            
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+                
+                <input matInput placeholder="Quantity" [(ngModel)] = "Quantity" name = "Quantity"  required #spy     #temp = "ngModel">
+            
+        </mat-form-field>
+    </div>
+        <div >
+
+
+            <button mat-raised-button color="primary" [disabled]="!tempForm.form.valid">Add</button>
+            <button  routerLink="/products"  routerLinkActive="active" mat-raised-button color="primary" >Cancel</button>
+        </div>
+      </div>
+    </form>
+    </mat-card>

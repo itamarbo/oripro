@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploaderService } from './../file-uploader.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-welcome',
@@ -9,9 +10,13 @@ import { FileUploaderService } from './../file-uploader.service';
 export class WelcomeComponent implements OnInit {
 
   fileObj: File;
+  det: string;
   fileUrl: string;
   errorMsg: boolean;
   title = 's3-file-uploader-app';
+  ddd$: Observable<any>;
+
+  res:Array<Object>=[];
 
   constructor(private fileUploaderService:FileUploaderService) {
     this.errorMsg = false;
@@ -38,9 +43,16 @@ export class WelcomeComponent implements OnInit {
     
     const fileForm = new FormData();
     fileForm.append('file', this.fileObj);
+    this.ddd$= this.fileUploaderService.fileUpload(fileForm);
+    // console.log(this.ddd$);
     this.fileUploaderService.fileUpload(fileForm).subscribe(res => {
-      console.log(res);
+      this.res = res;
+      console.log(this.res);
+      // this.ddd$ = res;
+      // console.log(this.ddd$);
       this.fileUrl = res['image'];
+      console.log( this.fileUrl);
+      
     });
   }
 

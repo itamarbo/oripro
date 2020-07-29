@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -10,7 +11,8 @@ export class FileUploaderService {
 
   constructor(private http : HttpClient) { }
   // My Students: please replace the post url below 
-  fileUpload(file: FormData) {
-    return this.http.post('http://localhost:8080/upload-ng', file);
+  fileUpload(file: FormData): Observable<any> {
+    return this.http.post('http://ec2-184-73-147-60.compute-1.amazonaws.com/upload-ng', file);
   }
+
 }
