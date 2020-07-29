@@ -14,7 +14,6 @@ export class WelcomeComponent implements OnInit {
   fileUrl: string;
   errorMsg: boolean;
   title = 's3-file-uploader-app';
-  ddd$: Observable<any>;
 
   res:Array<Object>=[];
 
@@ -43,13 +42,10 @@ export class WelcomeComponent implements OnInit {
     
     const fileForm = new FormData();
     fileForm.append('file', this.fileObj);
-    this.ddd$= this.fileUploaderService.fileUpload(fileForm);
-    // console.log(this.ddd$);
     this.fileUploaderService.fileUpload(fileForm).subscribe(res => {
       this.res = res;
       console.log(this.res);
-      // this.ddd$ = res;
-      // console.log(this.ddd$);
+     
       this.fileUrl = res['image'];
       console.log( this.fileUrl);
       
