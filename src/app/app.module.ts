@@ -32,6 +32,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { AddproductnotreallyComponent } from './addproductnotreally/addproductnotreally.component';
+import { ResultsComponent } from './results/results.component';
 // import { ProductComponent } from './product/product.component'; 
 
 
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'addproducts', component: ProductsComponent },
   { path: 'products', component: AddproductnotreallyComponent },
+  { path: 'results', component: ResultsComponent },
 
   { path: "",
     redirectTo: '/welcome',
@@ -59,6 +61,7 @@ const appRoutes: Routes = [
     LoginComponent,
     ProductsComponent,
     AddproductnotreallyComponent,
+    ResultsComponent,
     // ProductComponent
   ],
   imports: [

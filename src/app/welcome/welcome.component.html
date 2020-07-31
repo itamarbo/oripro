@@ -6,12 +6,17 @@
     <input (change)="onFilePicked($event)" class="custom-file-input" placeholder="Upload File" type="file" />
     <button (click)="onFileUpload()" class="myButton" >Upload File</button>
     <p *ngIf="errorMsg"> Please Select A File</p>
-   
-        <div >
-          <p  *ngIf= "res" >
-            <td>
-              {{res|json}}
-           </td>
-          </p>
-       </div>
+    
+    <table *ngIf="res">
+      <!-- ADD HEADERS -->
+      <tr>
+          
+              <th>Result</th>
+      </tr>
+      {{this.taxinum}} <br>
+      Two last digits are : 
+      {{this.lastdigits}}
+       <!-- {{res|json}} -->
+      
+       </table>
 </div>

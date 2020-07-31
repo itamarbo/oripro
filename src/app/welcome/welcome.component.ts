@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploaderService } from './../file-uploader.service';
 import { Observable } from 'rxjs';
+import { Aws } from '../interfaces/aws';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -14,10 +16,12 @@ export class WelcomeComponent implements OnInit {
   fileUrl: string;
   errorMsg: boolean;
   title = 's3-file-uploader-app';
-
   res:Array<Object>=[];
-
-  constructor(private fileUploaderService:FileUploaderService) {
+  dd$:Observable<any>;
+  taxinum;
+  length;
+  lastdigits
+  constructor(private fileUploaderService:FileUploaderService,private router: Router) {
     this.errorMsg = false;
    }
 
@@ -42,12 +46,21 @@ export class WelcomeComponent implements OnInit {
     
     const fileForm = new FormData();
     fileForm.append('file', this.fileObj);
-    this.fileUploaderService.fileUpload(fileForm).subscribe(res => {
+    
+  this.dd$= this.fileUploaderService.fileUpload(fileForm);
+  this.dd$.subscribe(res => {
       this.res = res;
-      console.log(this.res);
-     
+      
+      console.log(this.dd$);
+      console.log(res.data.TextDetections[0].DetectedText);
+      this.taxinum= res.data.TextDetections[0].DetectedText;
       this.fileUrl = res['image'];
       console.log( this.fileUrl);
+      // this.router.navigate(['/results']);
+      this.length=  this.taxinum.toString().length;
+      this.lastdigits = this.taxinum.substring(this.length - 2,this.length);
+      console.log( this.taxinum.substring(this.length - 2,this.length));
+      console.log( this.taxinum.toString().length)
       
     });
   }
