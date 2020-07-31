@@ -65,5 +65,20 @@ export class WelcomeComponent implements OnInit {
     });
   }
 
+  savenum() {
+    const textnum = 
+    {
+        "file_name": this.taxinum,
+       
+    };
+    // const textnum = "sdfsf";
+    console.log(this.taxinum)
+    this.fileUploaderService.saveNumber(textnum).subscribe(res => {
+      console.log(res);
+      console.log( this.fileUploaderService.saveNumber(this.taxinum)); 
+    });
+    
+  }
+
 }
 
