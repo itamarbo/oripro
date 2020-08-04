@@ -1,19 +1,16 @@
-
 <h1>Parked Cars</h1>
 <mat-accordion>
-    <mat-expansion-panel *ngFor = "let res of taxinum">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{res.file_name}}
-        </mat-panel-title>
-      
-      </mat-expansion-panel-header> 
-      Date :  {{res.Date}}
+  <mat-expansion-panel *ngFor="let res of taxinum">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{res.file_name}}
+      </mat-panel-title>
 
-      <br>
-      <button  mat-raised-button color="primary" (click)=deletenum(res.file_name)>Delete Taxi</button>  
+    </mat-expansion-panel-header>
+    Date & Time : {{res.Date}}
 
-    </mat-expansion-panel>
-  </mat-accordion>
-  
+    <br>
+    <button mat-raised-button color="primary" (click)=deletenum(res.file_name)>Delete Taxi</button>
 
+  </mat-expansion-panel>
+</mat-accordion>
