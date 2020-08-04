@@ -1,18 +1,19 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav   #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+      [opened]="(isHandset$ | async) === false" style="background-color:   #e6ffff
+      ">
     <mat-toolbar>Menu</mat-toolbar>
     
-    <mat-nav-list>
-      <a mat-list-item routerLink="/welcome" routerLinkActive="active">Upload file</a>
+    <mat-nav-list >
+      <a mat-list-item routerLink="/welcome" routerLinkActive="active">Check Taxi</a>
 
-      <a mat-list-item routerLink="/products" routerLinkActive="active">Products</a>
-      <a mat-list-item routerLink="/results" routerLinkActive="active">Results</a>
+      <!-- <a mat-list-item routerLink="/products" routerLinkActive="active">Products</a> -->
+      <a mat-list-item routerLink="/results" routerLinkActive="active">Parked Taxi</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -22,7 +23,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>oripro</span>
+      <span>Taxi Parking</span>
       <span class = "spacer"></span>
 
       <a class="whitelink" [routerLink]="['/signup']" *ngIf = "!(authService.user | async)?.uid">Sign Up</a>

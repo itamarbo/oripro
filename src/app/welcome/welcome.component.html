@@ -1,26 +1,25 @@
 <!-- file uploader -->
 <div class="main">
-  <h1>Please upload your file</h1>
+  <h1>Please upload car picture</h1>
   <input (change)="onFilePicked($event)" class="custom-file-input" placeholder="Upload File" type="file" />
-  <button (click)="onFileUpload()" class="myButton">Upload File</button>
-  <p *ngIf="errorMsg"> Please Select A File</p>
-
+  <button (click)="onFileUpload()" class="myButton">Check Taxi</button>
+  <p *ngIf="errorMsg"> Please Select A Picture</p>
+<!-- <div *ngIf (click)="onFileUpload()"> -->
   <table>
     <!-- ADD HEADERS -->
     <tr>
 
-      <th>Result</th>
+      <!-- <th>Result</th> -->
     </tr>
-    {{this.taxinum}} <br>
-    Two last digits are :
-    {{this.lastdigits}}
+<br>
+    
     <!-- {{res|json}} -->
 
     <!-- if it's 25 or 26 -->
     <div *ngIf="lastdigits === '25' || lastdigits === '26'">
-
-      <h2 style="color: green;">wooooowwww this is a Taxi!!!!</h2>
-      <h3 style="color: green;">Now, got to park your beautiful booba and now the gate is opening for you darling ;)</h3>
+        Detected car number:  {{this.taxinum}} <br>
+      <h2 style="color: green;"> this is a Taxi!</h2>
+      <h3 style="color: green;">Now, got to park your beautiful car, the gate is opening for you</h3>
       
       <div style='position:relative; padding-bottom:calc(60.43% + 44px)'><iframe src='https://gfycat.com/ifr/CreativeMeatyJohndory' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
       <br>
@@ -30,7 +29,7 @@
 
         <!-- if it's not 25 or 26 -->
     <div *ngIf=" !(lastdigits === '25' || lastdigits === '26') && lastdigits!=null">
-
+        Detected car number:  {{this.taxinum}} <br>
       <h2 style="color: red;">Go away... you are not a taxi my friend </h2>
       <img src='https://media0.giphy.com/media/3og0IUslmf25k8Ea7C/source.gif'>
       <br>
@@ -39,5 +38,5 @@
     </div>
 
   </table>
-
+<!-- </div> -->
 </div>

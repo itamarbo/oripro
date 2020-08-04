@@ -24,10 +24,15 @@ saveNumber(textnum:any): Observable<any> {
   return this.http.post('http://ec2-184-73-147-60.compute-1.amazonaws.com/setitem', textnum)
  
 }
-// saveNumber(num:number) {
-//   let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-//   let options = { headers: headers };
-//   return this.http.post('http://ec2-184-73-147-60.compute-1.amazonaws.com/setitem', num, options);
-// }
+
+getNumber(): Observable<any> {
+  return this.http.get('http://ec2-184-73-147-60.compute-1.amazonaws.com/getite')
+ 
+}
+
+DeleteNumber(textnum1:any): Observable<any> {
+  return this.http.post('http://ec2-184-73-147-60.compute-1.amazonaws.com/deleteitem',textnum1)
+ 
+}
 
 }

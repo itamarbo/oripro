@@ -69,7 +69,7 @@ export class WelcomeComponent implements OnInit {
     const textnum = 
     {
         "file_name": this.taxinum,
-       
+      
     };
     // const textnum = "sdfsf";
     console.log(this.taxinum)
