@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ResultsComponent implements OnInit {
   taxinum;
+  term:string;
   constructor(private fileUploaderService:FileUploaderService,private router: Router) { }
 
   ngOnInit(): void {

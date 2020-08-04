@@ -34,6 +34,7 @@ import { ProductsComponent } from './products/products.component';
 import { AddproductnotreallyComponent } from './addproductnotreally/addproductnotreally.component';
 import { ResultsComponent } from './results/results.component';
 // import { ProductComponent } from './product/product.component'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    Ng2SearchPipeModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,

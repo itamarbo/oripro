@@ -1,6 +1,10 @@
 <h1>Parked Cars</h1>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Search number" [(ngModel)]="term">
+<br>
+</div>
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let res of taxinum">
+  <mat-expansion-panel *ngFor="let res of taxinum| filter:term">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{res.file_name}}
